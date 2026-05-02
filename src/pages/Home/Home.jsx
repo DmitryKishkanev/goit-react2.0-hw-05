@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import fatchMovies from '@/moviesApi';
+import fetchMovies from '@/moviesApi';
 import MList from '@/components/MList';
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     const getMovies = async () => {
       try {
-        const resMovies = await fatchMovies('trending/movie/day');
+        const resMovies = await fetchMovies('trending/movie/day');
         setMovies(resMovies.results);
       } catch (error) {
         if (error.name === 'AbortError' || error.code === 'ERR_CANCELED') {
