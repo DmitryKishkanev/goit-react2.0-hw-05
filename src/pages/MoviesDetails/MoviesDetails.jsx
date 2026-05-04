@@ -1,7 +1,10 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { NavLink, Outlet } from 'react-router-dom';
 
 const MoviesDetails = () => {
+  const params = useParams();
+
   return (
     <main>
       <ul>
