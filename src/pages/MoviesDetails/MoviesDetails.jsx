@@ -1,22 +1,22 @@
-import React from 'react';
+import { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
+import MItem from '@/components/MItem';
+import Navigation from '@/components/Navigation';
 
 const MoviesDetails = () => {
   const params = useParams();
+  const location = useLocation();
 
   return (
     <main>
-      <ul>
-        <li>
-          <NavLink to="cast">Cast</NavLink>
-        </li>
-        <li>
-          <NavLink to="reviews">Reviews</NavLink>
-        </li>
-      </ul>
+      <Link to={location.state}>Go back</Link>
+      <MItem />
+      <Navigation />
 
-      <Outlet />
+      <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };

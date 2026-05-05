@@ -1,11 +1,13 @@
-import style from './App.module.css';
+import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from '@/pages/Home';
-import Movies from '@/pages/Movies';
 import Layout from '@/components/Layout';
-import MoviesDetails from '@/pages/MoviesDetails';
-import Cact from '@/components/Cast';
-import Reviews from '@/components/Reviews';
+import style from './App.module.css';
+
+const Home = lazy(() => import('@/pages/Home'));
+const Movies = lazy(() => import('@/pages/Movies'));
+const MoviesDetails = lazy(() => import('@/pages/MoviesDetails'));
+const Cact = lazy(() => import('@/components/Cast'));
+const Reviews = lazy(() => import('@/components/Reviews'));
 
 export default function App() {
   return (
