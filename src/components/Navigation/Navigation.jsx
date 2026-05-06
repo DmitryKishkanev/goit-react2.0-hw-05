@@ -1,16 +1,23 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import style from './Navigation.module.css';
 
 const Navigation = () => {
   return (
-    <ul>
-      <li>
-        <NavLink to="cast">Cast</NavLink>
-      </li>
-      <li>
-        <NavLink to="reviews">Reviews</NavLink>
-      </li>
-    </ul>
+    <header className={style.header}>
+      <Link to="/">
+        <h1 className={style.headerTitle}>MoviesHook</h1>
+      </Link>
+
+      <ul className={style.headerList}>
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="movies">Movies</NavLink>
+        </li>
+      </ul>
+    </header>
   );
 };
 
