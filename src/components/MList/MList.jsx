@@ -1,16 +1,22 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import noPoster from '@/img/no_poster.jpg';
+import style from './MList.module.css';
 
 const MList = ({ movies }) => {
   const location = useLocation();
 
   return (
-    <ul>
+    <ul className={style.movieList}>
       {movies.map(movie => (
-        <li key={movie.id}>
-          <NavLink to={`/movies/${movie.id}`} state={{ from: location }}>
+        <li className={style.movieItem} key={movie.id}>
+          <NavLink
+            className={style.movieLink}
+            to={`/movies/${movie.id}`}
+            state={{ from: location }}
+          >
             <img
+              className={style.movieImg}
               src={
                 movie.backdrop_path
                   ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
@@ -18,6 +24,8 @@ const MList = ({ movies }) => {
               }
               alt={movie.title || movie.name}
             />
+
+            <h3 className={style.movieTitle}>{movie.title}</h3>
           </NavLink>
         </li>
       ))}

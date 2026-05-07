@@ -1,0 +1,57 @@
+.article {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-start;
+  padding: 14px 6px;
+  margin-bottom: 50px;
+
+  box-shadow: 0px 6px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+.img {
+  transition: var(--transition-time) var(--transition-type);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.04);
+  }
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.scoreText {
+  margin-top: 0;
+  margin-bottom: 30px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  letter-spacing: 0.03em;
+}
+
+.overviewTitle {
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.overviewText {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.genresTitle {
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.genresList {
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin-top: 0;
+
+  list-style-type: none;
+}

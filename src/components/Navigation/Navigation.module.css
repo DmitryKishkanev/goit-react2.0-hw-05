@@ -10,12 +10,66 @@
 
 .headerTitle {
   margin: 0;
+
+  transition: color var(--transition-time) var(--transition-type);
+
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 1.19;
+  letter-spacing: 0.03em;
+
+  &:hover,
+  &:focus {
+    color: rgb(33, 150, 243);
+  }
 }
 
 .headerList {
   display: flex;
+
+  align-items: center;
   gap: 30px;
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.headerItem {
+  display: inline-block;
+
+  list-style-type: none;
+
+  cursor: pointer;
+}
+
+.active {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: rgb(33, 150, 243);
+  color: white !important;
+}
+
+.headerLink {
+  display: inline-block;
+
+  color: black;
+
+  transition:
+    transform var(--transition-time) var(--transition-type),
+    color var(--transition-time) var(--transition-type);
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.19;
+  letter-spacing: 0.03em;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.07);
+    color: rgb(33, 150, 243);
+  }
+
+  &.active {
+    color: black;
+  }
 }

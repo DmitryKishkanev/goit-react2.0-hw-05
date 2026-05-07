@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import fetchMovies from '@/moviesApi';
 import noImage from '@/img/no_img.jpg';
+import style from './Cast.module.css';
 
 const Cast = () => {
   const [castList, setCastList] = useState([]);
@@ -40,7 +41,7 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <div className={style.castContainer}>
       {loading ? (
         <p>Loading...</p>
       ) : error ? (
@@ -48,10 +49,11 @@ const Cast = () => {
       ) : castList.length === 0 ? (
         <p>We don't have a cast list for this movie</p>
       ) : (
-        <ul>
+        <ul className={style.castList}>
           {castList.map(castItem => (
-            <li key={castItem.credit_id}>
+            <li className={style.castItem} key={castItem.credit_id}>
               <img
+                className={style.castImg}
                 src={
                   castItem.profile_path
                     ? `https://image.tmdb.org/t/p/w500${castItem.profile_path}`
@@ -59,15 +61,15 @@ const Cast = () => {
                 }
                 alt={castItem.name}
               />
-              <p>{castItem.original_name}</p>
+              <p className={style.actorName}>{castItem.original_name}</p>
               <span>character:</span>
-              <p>{castItem.character}</p>
+              <p className={style.characterName}>{castItem.character}</p>
             </li>
           ))}
         </ul>
       )}
 
-      <button type="button" onClick={handleClose}>
+      <button className={style.castButton} type="button" onClick={handleClose}>
         Close
       </button>
     </div>

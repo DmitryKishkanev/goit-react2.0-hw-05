@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from '@/components/Layout';
+import NotFoundPage from '@/pages/NotFoundPage';
 import style from './App.module.css';
 
 const Home = lazy(() => import('@/pages/Home'));
@@ -20,6 +21,8 @@ export default function App() {
             <Route path="cast" element={<Cact />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
+
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </div>

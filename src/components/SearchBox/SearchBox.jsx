@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { IoSearch } from 'react-icons/io5';
 import toast, { Toaster } from 'react-hot-toast';
+import PropTypes from 'prop-types';
 import style from './SearchBox.module.css';
 
 const SearchBox = ({ onSubmit }) => {
@@ -35,6 +36,10 @@ const SearchBox = ({ onSubmit }) => {
       <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
+};
+
+SearchBox.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchBox;

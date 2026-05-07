@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import fetchMovies from '@/moviesApi';
 import MList from '@/components/MList';
+import style from './Home.module.css';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -24,6 +25,7 @@ const Home = () => {
 
   return (
     <main>
+      <h1 className={style.title}>Trending today</h1>
       <MList movies={movies} />
     </main>
   );

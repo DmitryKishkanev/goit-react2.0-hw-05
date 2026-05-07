@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import SearchBox from '@/components/SearchBox';
 import MList from '@/components/MList';
 import fetchMovies from '@/moviesApi';
+import style from './Movies.module.css';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -24,7 +25,6 @@ const Movies = () => {
           query: movieName,
         });
 
-        console.log(resMovies);
         setMovies(resMovies.results);
       } catch (error) {
         if (error.name === 'AbortError' || error.code === 'ERR_CANCELED') {
@@ -39,10 +39,10 @@ const Movies = () => {
   }, [movieName]);
 
   return (
-    <div>
+    <main className={style.main}>
       <SearchBox onSubmit={updateQueryString} />
       <MList movies={movies} />
-    </div>
+    </main>
   );
 };
 

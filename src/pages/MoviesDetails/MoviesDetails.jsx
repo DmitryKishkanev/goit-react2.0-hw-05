@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { Outlet, Link, NavLink, useLocation } from 'react-router-dom';
 import MItem from '@/components/MItem';
 import fetchMovies from '@/moviesApi';
+import BackLink from '@/components/BackLink';
+import style from './MoviesDetails.module.css';
 
 const MoviesDetails = () => {
   const [movie, setMovie] = useState({});
@@ -15,7 +17,6 @@ const MoviesDetails = () => {
       try {
         const resMovies = await fetchMovies(`movie/${movieId}`);
         setMovie(resMovies);
-        console.log(resMovies);
       } catch (error) {
         if (error.name === 'AbortError' || error.code === 'ERR_CANCELED') {
           // Запрос отменён — просто игнорируем
@@ -36,15 +37,20 @@ const MoviesDetails = () => {
     <main>
       {/* строчка для ESLint, что бы он не ругался на backLinkRef.current*/}
       {/* eslint-disable-next-line */}
-      <Link to={backLinkRef.current}>Go back</Link>
+      <BackLink to={backLinkRef.current}>Go back</BackLink>
       <MItem movie={movie} />
 
-      <ul>
-        <li>
-          <NavLink to="cast">Cast</NavLink>
+      <h3 className={style.title}>Additional information</h3>
+      <ul className={style.list}>
+        <li className={style.item}>
+          <NavLink className={style.link} to="cast">
+            Cast
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="reviews">Reviews</NavLink>
+        <li className={style.item}>
+          <NavLink className={style.link} to="reviews">
+            Reviews
+          </NavLink>
         </li>
       </ul>
 
